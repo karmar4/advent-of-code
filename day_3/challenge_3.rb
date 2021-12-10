@@ -9,24 +9,19 @@ def most_common_bit(data, placment)
   one = 0
   zero = 0
   data.each { |x| x[placment] == '0' ? zero += 1 : one += 1 }
-  if zero > one
-    most_common = 0
-  elsif zero <= one
-    most_common = 1
-  end
+  zero <= one ? most_common = 1 : most_common = 0
 end
 
 placements.each do |pos|
   puts input.length
   if input.length == 1 
-  print input
+  puts input
   end
   common_bit = most_common_bit(input, pos)
   input = input.filter {|x| x[pos].to_i == common_bit}
 
 end
 
-print input
 puts Integer(input.join.to_s, 2)
 
 
